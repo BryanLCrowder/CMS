@@ -7,7 +7,7 @@ import { Message } from '../message.model';
   styleUrls: ['./message-edit.component.css']
 })
 export class MessageEditComponent implements OnInit {
-  currentSender = '1';
+  currentSender = 'Bryan';
   @ViewChild('subjectInput') subjectInputRef: ElementRef;
   @ViewChild('msgTextInput') msgInputRef: ElementRef;
   @Output() addMessageEvent = new EventEmitter<Message>();
@@ -19,11 +19,7 @@ export class MessageEditComponent implements OnInit {
   onSendMessage() {
     const msgSubject = this.subjectInputRef.nativeElement.value;
     const msg = this.msgInputRef.nativeElement.value;
-    const newMessage = new Message( '1', msgSubject, msg, "bryan");
+    const newMessage = new Message( this.currentSender, msgSubject, msg, '1');
     this.addMessageEvent.emit(newMessage);
   }
-
-  onClear() {
-    this.subjectInputRef.nativeElement.value = '';
-    this.msgInputRef.nativeElement.value = '';
-  }}
+} 

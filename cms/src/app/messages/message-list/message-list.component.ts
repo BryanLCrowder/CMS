@@ -7,14 +7,14 @@ import { Message } from '../message.model';
   styleUrls: ['./message-list.component.css']
 })
 export class MessageListComponent implements OnInit {
-messages: Message;
+messages: Message[] = [];
   constructor() { }
 
   ngOnInit() {
   }
 
   onAddMessage(message: Message) {
-    this.messages = (message);
+    this.messages.push(message);
   }
   
 }
