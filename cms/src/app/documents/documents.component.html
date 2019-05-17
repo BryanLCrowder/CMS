@@ -1,11 +1,13 @@
 <div class="row">
   <div class="col-md-5">
-      <cms-document-list></cms-document-list>
+      <cms-document-list
+      (documentWasSelected) = "selectedDocument = $event">
+    </cms-document-list>
   </div>
   <div class="col-md-4">
       <cms-document-detail
-      *ngIf="selectedDocumnet; else infoText"
-      [document]="selectedDocument">>
+      *ngIf="selectedDocumnet;"
+      [document]="selectedDocument">
 
       </cms-document-detail>
   </div>

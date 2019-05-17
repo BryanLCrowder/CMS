@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import {Document } from '../document.model';
+import { Document } from '../document.model';
 
 @Component({
   selector: 'cms-document-list',
@@ -8,7 +8,9 @@ import {Document } from '../document.model';
 })
 export class DocumentListComponent implements OnInit {
   @Output() documentWasSelected = new EventEmitter<Document>();
-  document: Document[] =[]
+  documents: Document[] =[
+    new Document(1, "CIT366", "This class has taught me a lot about the MEAN stack.", "byui.edu", "none")
+     ]
   constructor() { }
   onDocumentSelected(document: Document){
     this.documentWasSelected.emit(document);
