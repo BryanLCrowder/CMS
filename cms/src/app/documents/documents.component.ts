@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DocumentsService } from './documents.service';
 
 
 @Component({
@@ -7,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./documents.component.css']
 })
 export class DocumentsComponent implements OnInit {
-
-  constructor() { }
+  documentSelectedEvent: Document;
+  constructor(private documentsService: DocumentsService) { }
 
   ngOnInit() {
-  }
+    this.documentsService.documentSelectedEvent.subscribe(
+      (documents: Document) => {
+        this.documentSelectedEvent = documents;
+  });
 
+  }
 }
