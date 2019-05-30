@@ -10,9 +10,12 @@ import { ContactService } from 'src/app/contacts/contact.service';
 })
 export class MessageItemComponent implements OnInit {
   @Input() message: Message;
+  @Input() contact: Contact;
   messageSender: string = "";
   canEdit: boolean = false;
+  
   constructor(private contactService: ContactService) { }
+
 
   ngOnInit() {
     let contact: Contact = this.contactService.getContact(this.message.sender);
