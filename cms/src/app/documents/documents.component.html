@@ -4,10 +4,6 @@
     </cms-document-list>
   </div>
   <div class="col-md-4">
-      <cms-document-detail
-      *ngIf="documentSelectedEvent;"
-      [document]="documentSelectedEvent">
-
-      </cms-document-detail>
+      <router-outlet></router-outlet>
   </div>
 </div>

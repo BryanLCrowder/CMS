@@ -16,6 +16,5 @@ export class DocumentsComponent implements OnInit {
       (documents: Document) => {
         this.documentSelectedEvent = documents;
   });
-
   }
 }

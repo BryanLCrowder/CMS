@@ -4,9 +4,6 @@
     </cms-contact-list>
   </div>
   <div class="col-md-4">
-    <cms-contact-detail 
-    *ngIf="selectedContactEvent; else infoText"
-    [contact]="selectedContactEvent">
-  </cms-contact-detail>
+    <router-outlet></router-outlet>
   </div>
 </div>

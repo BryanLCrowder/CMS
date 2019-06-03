@@ -1,9 +1,8 @@
-<cms-header (featureSelected)="onNavigate($event)"></cms-header>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <cms-recipes *ngIf="loadedFeature === 'recipe'"></cms-recipes>
-        <cms-shopping-list *ngIf="loadedFeature !== 'recipe'"></cms-shopping-list>
-      </div>
+<app-header (featureSelected)="onNavigate($event)"></app-header>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <router-outlet></router-outlet>
     </div>
   </div>
+</div>
