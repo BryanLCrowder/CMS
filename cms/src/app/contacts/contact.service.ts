@@ -7,8 +7,10 @@ import { Subject } from 'rxjs';
 export class ContactService {
 selectedContactEvent = new EventEmitter<Contact>();
 contactChangedEvent = new Subject<Contact[]>();
+contactListChangedEvent = new Subject<Contact[]>();
 
   contacts: Contact[]=[];
+  maxContactId: number;
 
   constructor() {
     this.contacts = MOCKCONTACTS;
@@ -37,5 +39,33 @@ contactChangedEvent = new Subject<Contact[]>();
     this.contacts.splice(pos, 1);
     this.contactChangedEvent.next(this.contacts.slice());
   }
-  
+  addContact(newContact: Contact) {
+    if (newContact === null) {
+      return;
+    }
+
+    this.maxContactId++;
+    newContact.id = String(this.maxContactId);
+    this.contacts.push(newContact);
+    const contactsListClone = this.contacts.slice();
+    this.contactListChangedEvent.next(contactsListClone);
+  }
+
+  updateContact(originalContact: Contact,
+                newContact: Contact) {
+    if (originalContact === null || newContact === null
+      || originalContact === undefined || newContact === undefined) {
+      return;
+    }
+
+    newContact.id = originalContact.id;
+    const pos = this.contacts.indexOf(originalContact);
+    if (pos < 0) {
+      return;
+    }
+
+    this.contacts[pos] = newContact;
+    const contactsListClone = this.contacts.slice();
+    this.contactListChangedEvent.next(contactsListClone);
+  }
   }

@@ -18,8 +18,6 @@ export class DocumentListComponent implements OnInit, OnDestroy {
               private route: ActivatedRoute) {
   }
 
-
-
     ngOnInit() {
       this.document = this.documentService.getDocuments();
       this.subscription = this.documentService.documentChangedEvent

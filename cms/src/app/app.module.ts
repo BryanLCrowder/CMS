@@ -23,6 +23,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { WindRefService } from './wind-ref.service';
 import { DocumentsService } from './documents/documents.service';
 import { MessagesService } from './messages/messages.service';
+import { DndModule } from 'ng2-dnd';
 
 
 @NgModule({
@@ -41,12 +42,15 @@ import { MessagesService } from './messages/messages.service';
     MessageItemComponent,
     MessageEditComponent,
     MessageListComponent, 
-    DropdownDirective, ContactEditComponent, DocumentEditComponent
+    DropdownDirective, 
+    ContactEditComponent, 
+    DocumentEditComponent
   ],
   imports: [
     BrowserModule,
     FormsModule, 
-    AppRoutingModule
+    AppRoutingModule, 
+    DndModule.forRoot()
   ],
   providers: [ContactService, DocumentsService, MessagesService, WindRefService],
   bootstrap: [AppComponent]
