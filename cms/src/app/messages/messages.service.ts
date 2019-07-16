@@ -28,7 +28,7 @@ export class MessagesService {
       }
 
       getMessages() {
-        this.http.get('https://cms-project-7eb11.firebaseio.com/messages.json')
+        this.http.get('http://localhost:3000/messages')
           .subscribe(
             (messages: Message[]) => {
               this.messages = messages;

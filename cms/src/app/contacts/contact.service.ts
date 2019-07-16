@@ -30,7 +30,7 @@ export class ContactService {
   }
 
   getContacts() {
-    this.http.get('https://cms-project-7eb11.firebaseio.com/contacts.json')
+    this.http.get('http://localhost:3000/contacts')
       .subscribe(
         (contacts: Contact[]) => {
           this.contacts = contacts;
